@@ -60,8 +60,8 @@ elseif ( ! class_exists( 'WC_Beta_Tester' ) ) :
 				'plugin_file'        => 'woocommerce/woocommerce.php',
 				'slug'               => 'woocommerce',
 				'proper_folder_name' => 'woocommerce',
-				'api_url'            => 'https://api.github.com/repos/woothemes/woocommerce',
-				'github_url'         => 'https://github.com/woothemes/woocommerce',
+				'api_url'            => 'https://api.github.com/repos/woothemes/storefront',
+				'github_url'         => 'https://github.com/woothemes/storefront',
 				'requires'           => '4.4',
 				'tested'             => '4.4'
 			);
