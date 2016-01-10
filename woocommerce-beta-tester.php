@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: WooCommerce Beta Tester
+ * Plugin Name: StoreFront Beta Tester
  * Plugin URI: https://github.com/woothemes/woocommerce-beta-tester
- * Description: Run bleeding edge versions of WooCommerce from our Github repo. This will replace your installed version of WooCommerce with the latest tagged release on Github - use with caution, and not on production sites. You have been warned.
- * Version: 1.0.1
+ * Description: Run bleeding edge versions of StoreFront from Github. This is nuts, but it ensures things work without having to juggle serverpress, emulators, and other "non-real" options! Plus, it's nice to see what the REAL mobile keyboards do as well.
+ * Version: 1.0
  * Author: Mike Jolley
  * Author URI: http://woothemes.com/
  * Requires at least: 4.2
- * Tested up to: 4.4
+ * Tested up to: 4.5
  *
  * Based on WP_GitHub_Updater by Joachim Kudish.
  */
