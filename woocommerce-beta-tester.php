@@ -60,8 +60,8 @@ elseif ( ! class_exists( 'SF_Beta_Tester' ) ) :
 				'plugin_file'        => 'woocommerce/woocommerce.php', /* 'theme_file' => 'themes/storefront.php', */
 				'slug'               => 'woocommerce', /* 'theme' => 'storefront' */ 
 				'proper_folder_name' => 'woocommerce', /* not a clue what goes here */
-				'api_url'            => 'https://api.github.com/repos/woothemes/storefront/release',
-				'github_url'         => 'https://github.com/woothemes/storefront/release',
+				'api_url'            => 'https://api.github.com/repos/woothemes/storefront/',
+				'github_url'         => 'https://github.com/woothemes/storefront/',
 				'requires'           => '4.4',
 				'tested'             => '4.4'
 			);
