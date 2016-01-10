@@ -24,12 +24,12 @@ if ( ! file_exists( trailingslashit( dirname( dirname( __FILE__ ) ) ) . 'woocomm
 
 	add_action( 'admin_notices', 'wcbt_woocoommerce_not_installed' );
 
-elseif ( ! class_exists( 'WC_Beta_Tester' ) ) :
+elseif ( ! class_exists( 'SF_Beta_Tester' ) ) :
 
 	/**
-	 * WC_Beta_Tester Main Class
+	 * SF_Beta_Tester Main Class
 	 */
-	class WC_Beta_Tester {
+	class SF_Beta_Tester {
 
 		/** Config */
 		private $config = array();
@@ -48,8 +48,8 @@ elseif ( ! class_exists( 'WC_Beta_Tester' ) ) :
 		 * Ran on activation to flush update cache
 		 */
 		public static function activate() {
-			delete_site_transient( 'update_plugins' );
-			delete_site_transient( 'woocommerce_latest_tag' );
+			delete_site_transient( 'update_plugins' ); /* Would this be ('update_themes') */
+			delete_site_transient( 'woocommerce_latest_tag' ); /* ( 'storefront_latest_tag') */
 		}
 
 		/**
@@ -57,14 +57,15 @@ elseif ( ! class_exists( 'WC_Beta_Tester' ) ) :
 		 */
 		public function __construct() {
 			$this->config = array(
-				'plugin_file'        => 'woocommerce/woocommerce.php',
-				'slug'               => 'woocommerce',
-				'proper_folder_name' => 'woocommerce',
+				'plugin_file'        => 'woocommerce/woocommerce.php', /* 'theme_file' => 'themes/storefront.php', */
+				'slug'               => 'woocommerce', /* 'theme' => 'storefront' */ 
+				'proper_folder_name' => 'woocommerce', /* not a clue what goes here */
 				'api_url'            => 'https://api.github.com/repos/woothemes/storefront/release',
 				'github_url'         => 'https://github.com/woothemes/storefront/release',
 				'requires'           => '4.4',
 				'tested'             => '4.4'
 			);
+			/* I understand that this next part needs to be rewritten, but to __what__? */
 			add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'api_check' ) );
 			add_filter( 'plugins_api', array( $this, 'get_plugin_info' ), 10, 3 );
 			add_filter( 'upgrader_source_selection', array( $this, 'upgrader_source_selection' ), 10, 3 );
@@ -83,6 +84,7 @@ elseif ( ! class_exists( 'WC_Beta_Tester' ) ) :
 			$this->config[ 'new_version' ]  = $this->get_latest_prerelease();
 			$this->config[ 'last_updated' ] = $this->get_date();
 			$this->config[ 'description' ]  = $this->get_description();
+			/* All the above stuff needs to be changed, but the NEXT line is a doozy.  There's not a zipball URL for https://github.com/woothemes/storefront/zipball/ ~I tried!~ */
 			$this->config[ 'zip_url' ]      = 'https://github.com/woothemes/woocommerce/zipball/' . $this->config[ 'new_version' ];
 		}
 
@@ -92,7 +94,7 @@ elseif ( ! class_exists( 'WC_Beta_Tester' ) ) :
 		 * @return bool overrule or not
 		 */
 		public function overrule_transients() {
-			return ( defined( 'WC_BETA_TESTER_FORCE_UPDATE' ) && WC_BETA_TESTER_FORCE_UPDATE );
+			return ( defined( 'SF_BETA_TESTER_FORCE_UPDATE' ) && SF_BETA_TESTER_FORCE_UPDATE );
 		}
 
 		/**
